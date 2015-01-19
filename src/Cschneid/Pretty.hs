@@ -5,6 +5,14 @@ import Text.PrettyPrint.HughesPJClass
 
 data Tree a = Leaf a | Node (Tree a) (Tree a) deriving (Show)
 
+-- λ putStrLn renderPrettyTree
+-- Node:
+--   Node:
+--     Leaf: 9
+--     Leaf: 8
+--   Node:
+--     Leaf: 2
+--     Leaf: 3
 instance Pretty a => Pretty (Tree a) where
   pPrint (Leaf a)   = text "Leaf: " <> pPrint a
   pPrint (Node l r) = vcat [ text "Node:"
